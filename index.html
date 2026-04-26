@@ -260,6 +260,19 @@ function createHearts() {
   }, 300);
 }
 createHearts();
+
+let musicStarted = false;
+
+function startMusic() {
+  if (!musicStarted) {
+    const music = document.getElementById("bgMusic");
+    music.play().catch(() => {});
+    musicStarted = true;
+  }
+}
+
+window.addEventListener("scroll", startMusic);
+window.addEventListener("click", startMusic);
 </script>
 
 </body>
