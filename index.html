@@ -6,6 +6,26 @@
 <title>For Tista ❤️</title>
 
 <style>
+#lockScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+#countdown {
+  font-size: 32px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+  
 body {
   margin: 0;
   font-family: "Times New Roman", Times, serif;
@@ -139,6 +159,15 @@ h1 {
 </head>
 
 <body onclick="document.getElementById('bgMusic').play()">
+
+<div id="lockScreen">
+  <div>
+    <h1>it’s not time yet… ❤️</h1>
+    <p id="countdown"></p>
+  </div>
+</div>
+
+<div id="mainContent" style="display:none;">
 
 <h1>Happy Birthdayyy my Sugar Cookiee 🍪❤️</h1>
 
@@ -375,7 +404,35 @@ notes.forEach(note => {
 
   note.style.transform = `rotate(${randomRotate}deg) translate(${randomX}px, ${randomY}px)`;
 });
+
+// SET UNLOCK TIME
+const unlockTime = new Date("April 27, 2026 00:00:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = unlockTime - now;
+
+  if (distance <= 0) {
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    return;
+  }
+
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById("countdown").innerText =
+    `${hours.toString().padStart(2,'0')}:` +
+    `${minutes.toString().padStart(2,'0')}:` +
+    `${seconds.toString().padStart(2,'0')}`;
+}
+
+// update every second
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
 
+</div>
 </body>
 </html>
