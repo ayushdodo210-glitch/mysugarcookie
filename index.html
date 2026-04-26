@@ -10,18 +10,36 @@
     font-family: "Times New Roman", Times, serif;
     color: white;
     overflow-x: hidden;
-    background: url('bg.jpg') no-repeat center center fixed;
-    background-size: cover;
   }
-
+  
+  /* BLURRED BACKGROUND LAYER */
   body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    background: url('bg.jpg') no-repeat center center;
+    background-size: cover;
+  
+    filter: blur(8px); /* <-- adjust blur here */
+    transform: scale(1.1); /* prevents edges showing */
+  
+    z-index: -2;
+  }
+  
+  /* DARK OVERLAY */
+  body::after {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.4);
     z-index: -1;
   }
+    }
 
   h1 {
     text-align: center;
