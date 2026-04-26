@@ -2,156 +2,191 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Tista ❤️</title>
+<title>For You ❤️</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: "Times New Roman", Times, serif;
-    color: white;
-    overflow-x: hidden;
-  }
-  
-  /* BLURRED BACKGROUND LAYER */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  
-    background: url('bg.jpg') no-repeat center center;
-    background-size: cover;
-  
-    filter: blur(8px); /* <-- adjust blur here */
-    transform: scale(1.1); /* prevents edges showing */
-  
-    z-index: -2;
-  }
-  
-  /* DARK OVERLAY */
-  body::after {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: -1;
-  }
-    }
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  overflow-x: hidden;
+}
 
-  h1 {
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 60px 20px;
-    font-size: 114px;
-    font-family: "Times New Roman", Times, serif;
-  }
+/* BLURRED BG */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('bg.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(8px);
+  transform: scale(1.1);
+  z-index: -2;
+}
 
-  .section {
-    position: relative;
-    min-height: 140vh; /* more space = better flow */
+/* DARK OVERLAY */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+/* HEADING */
+h1 {
+  text-align: center;
+  padding: 80px 20px;
+  font-size: 52px;
+}
+
+/* SECTIONS */
+.section {
+  position: relative;
+  min-height: 140vh;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* POLAROID */
+.polaroid {
+  position: absolute;
+  width: 260px;
+  background: black;
+  padding: 10px 10px 35px 10px;
+  border-radius: 6px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  transition: transform 0.4s;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid p {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #eaeaea;
+  text-align: center;
+  font-family: "Georgia", serif;
+  font-style: italic;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg);
+}
+
+/* PAPER NOTES */
+.note {
+  position: absolute;
+  max-width: 320px;
+  background: linear-gradient(135deg, #fdf6e3, #f5e6c8);
+  color: #3e2f1c;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  font-size: 24px;
+  line-height: 1.6;
+}
+
+.note:nth-of-type(odd) {
+  transform: rotate(2deg);
+}
+
+.note:nth-of-type(even) {
+  transform: rotate(-3deg);
+}
+
+/* TYPEWRITER */
+.typewriter::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* HEARTS */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: pink;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 1s ease;
   }
-
-  .section.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* BIGGER PHOTOS */
-  .photo {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
-    transition: transform 0.4s;
-  }
-
-  .photo:hover {
-    transform: scale(1.08) rotate(0deg);
-  }
-
-  /* BIGGER TEXT */
-  .note {
-    position: absolute;
-    max-width: 320px;
-  
-    /* PAPER LOOK */
-    background: #fdf6e3; /* soft paper color */
-    color: #3e2f1c; /* ink color */
-
-    padding: 20px;
-    border-radius: 12px;
-
-    /* subtle shadow like paper lying around */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-
-    font-size: 24px; /* Word 18 */
-    line-height: 1.6;
-    font-family: "Times New Roman", Times, serif;
-
-    /* slight random tilt */
-    transform: rotate(-2deg);
-  }
-
-  .typewriter::after {
-    content: "|";
-    animation: blink 1s infinite;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  .heart {
-    position: fixed;
-    bottom: -10px;
-    color: pink;
-    animation: floatUp 6s linear infinite;
-  }
-
-  @keyframes floatUp {
-    to {
-      transform: translateY(-100vh);
-      opacity: 0;
-    }
-  }
+}
 </style>
 </head>
 
 <body onclick="document.getElementById('bgMusic').play()">
 
-<h1>Happy Birthdayyy my dear SUGAR COOKIE 🍪❤️</h1>
+<h1>happy birthday ❤️</h1>
 
-<!-- SECTION -->
+<!-- SECTION 1 -->
 <div class="section">
-  <img src="photo1.jpg" class="photo" style="top:10%; left:8%; transform:rotate(-8deg);">
-  <img src="photo2.jpg" class="photo" style="top:55%; left:60%; transform:rotate(6deg);">
+  <div class="polaroid" style="top:10%; left:8%; transform:rotate(-8deg);">
+    <img src="photo1.jpg">
+    <p>my favorite picture of you</p>
+  </div>
+
+  <div class="polaroid" style="top:55%; left:60%; transform:rotate(6deg);">
+    <img src="photo2.jpg">
+    <p>you here &gt;&gt;&gt;</p>
+  </div>
+
   <div class="note typewriter" data-text="this was one of my favorite moments with you" style="top:30%; left:38%;"></div>
 </div>
 
+<!-- SECTION 2 -->
 <div class="section">
-  <img src="photo3.jpg" class="photo" style="top:15%; left:65%; transform:rotate(-6deg);">
-  <img src="photo4.jpg" class="photo" style="top:65%; left:15%; transform:rotate(10deg);">
+  <div class="polaroid" style="top:15%; left:65%; transform:rotate(-6deg);">
+    <img src="photo3.jpg">
+    <p>still can’t believe i got you</p>
+  </div>
+
+  <div class="polaroid" style="top:65%; left:15%; transform:rotate(10deg);">
+    <img src="photo4.jpg">
+    <p>i’d choose you every time</p>
+  </div>
+
   <div class="note typewriter" data-text="you make everything feel lighter" style="top:45%; left:40%;"></div>
 </div>
 
+<!-- SECTION 3 -->
 <div class="section">
-  <img src="photo5.jpg" class="photo" style="top:10%; left:30%; transform:rotate(5deg);">
-  <img src="photo6.jpg" class="photo" style="top:70%; left:65%; transform:rotate(-10deg);">
+  <div class="polaroid" style="top:10%; left:30%; transform:rotate(5deg);">
+    <img src="photo5.jpg">
+    <p>my favorite version of you</p>
+  </div>
+
+  <div class="polaroid" style="top:70%; left:65%; transform:rotate(-10deg);">
+    <img src="photo6.jpg">
+    <p>this one stays with me</p>
+  </div>
+
   <div class="note typewriter" data-text="i’d choose you every single time" style="top:50%; left:10%;"></div>
 </div>
 
 <!-- FINAL -->
 <div class="section">
-  <h1 class="typewriter" data-text="i love you ❤️" style="position:absolute; top:40%; width:100%; text-align:center;"></h1>
+  <h1 class="typewriter" data-text="i love you ❤️" style="position:absolute; top:40%; width:100%;"></h1>
 </div>
 
 <!-- MUSIC -->
