@@ -62,12 +62,23 @@
   .note {
     position: absolute;
     max-width: 320px;
-    background: rgba(0,0,0,0.5);
-    padding: 18px;
-    border-radius: 18px;
-    backdrop-filter: blur(10px);
-    font-size: 32px; /* Word size 18 equivalent */
+  
+    /* PAPER LOOK */
+    background: #fdf6e3; /* soft paper color */
+    color: #3e2f1c; /* ink color */
+
+    padding: 20px;
+    border-radius: 12px;
+
+    /* subtle shadow like paper lying around */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+    font-size: 24px; /* Word 18 */
     line-height: 1.6;
+    font-family: "Times New Roman", Times, serif;
+
+    /* slight random tilt */
+    transform: rotate(-2deg);
   }
 
   .typewriter::after {
