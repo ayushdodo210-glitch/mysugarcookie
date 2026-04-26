@@ -1,116 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For You ❤️</title>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(#0f0c29, #302b63, #24243e);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 40px;
+    font-size: 50px;
+  }
+
+  .section {
+    position: relative;
+    height: 120vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+  }
+
+  .section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .photo {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s;
+  }
+
+  .photo:hover {
+    transform: scale(1.1) rotate(0deg);
+  }
+
+  .note {
+    position: absolute;
+    max-width: 260px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    font-size: 16px;
+  }
+
+  .typewriter::after {
+    content: "|";
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .heart {
+    position: fixed;
+    bottom: -10px;
+    color: pink;
+    animation: floatUp 6s linear infinite;
+  }
+
+  @keyframes floatUp {
+    to {
+      transform: translateY(-100vh);
+      opacity: 0;
     }
-
-    body {
-      color: white;
-    }
-
-    /* MAIN CONTENT */
-    #content {
-      min-height: 100vh;
-      background: url('bg.jpg') no-repeat center center/cover;
-      text-align: center;
-      padding: 40px;
-      animation: fadeIn 2s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    h1 {
-      font-size: 50px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px rgba(0,0,0,0.6);
-    }
-
-    .photos {
-      margin: 20px 0;
-    }
-
-    .photos img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 20px;
-      margin: 10px;
-      transition: transform 0.3s;
-    }
-
-    .photos img:hover {
-      transform: scale(1.1);
-    }
-
-    .message {
-      max-width: 600px;
-      margin: auto;
-      font-size: 20px;
-      line-height: 1.6;
-      background: rgba(0,0,0,0.4);
-      padding: 20px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-
-    /* HEARTS */
-    .heart {
-      position: fixed;
-      bottom: -10px;
-      color: pink;
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
-    }
-
-  </style>
+  }
+</style>
 </head>
 
 <body onclick="document.getElementById('bgMusic').play()">
 
-<div id="content">
-  <h1>happy birthday ❤️</h1>
+<h1>happy birthday ❤️</h1>
 
-  <div class="photos">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-  </div>
+<!-- SECTION 1 -->
+<div class="section">
+  <img src="photo1.jpg" class="photo" style="top:10%; left:10%; transform:rotate(-10deg);">
+  <img src="photo2.jpg" class="photo" style="top:60%; left:60%; transform:rotate(8deg);">
+  <div class="note typewriter" data-text="this was one of my favorite moments with you" style="top:30%; left:40%;"></div>
+</div>
 
-  <div class="message">
-    <p>
-      i don’t even know where to start<br><br>
+<!-- SECTION 2 -->
+<div class="section">
+  <img src="photo3.jpg" class="photo" style="top:20%; left:70%; transform:rotate(-6deg);">
+  <img src="photo4.jpg" class="photo" style="top:65%; left:20%; transform:rotate(12deg);">
+  <div class="note typewriter" data-text="you make everything feel lighter" style="top:45%; left:45%;"></div>
+</div>
 
-      but i’m really glad i met you<br>
-      like genuinely, you make everything feel lighter just by being there<br><br>
+<!-- SECTION 3 -->
+<div class="section">
+  <img src="photo5.jpg" class="photo" style="top:15%; left:30%; transform:rotate(5deg);">
+  <img src="photo6.jpg" class="photo" style="top:70%; left:65%; transform:rotate(-12deg);">
+  <div class="note typewriter" data-text="i’d choose you every single time" style="top:50%; left:10%;"></div>
+</div>
 
-      you deserve the softest happiest life ever<br>
-      and i hope this year gives you everything you’ve been wanting<br><br>
-
-      i love you ❤️
-    </p>
-  </div>
+<!-- FINAL -->
+<div class="section">
+  <h1 class="typewriter" data-text="i love you ❤️" style="position:absolute; top:40%; width:100%; text-align:center;"></h1>
 </div>
 
 <!-- MUSIC -->
@@ -119,25 +117,56 @@
 </audio>
 
 <script>
-  function createHearts() {
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerText = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-      document.body.appendChild(heart);
+/* FADE IN ON SCROLL */
+const sections = document.querySelectorAll('.section');
 
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }, 300);
-  }
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      typeText(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
 
-  window.onload = () => {
-    document.getElementById("bgMusic").play().catch(() => {});
-    createHearts();
-  };
+sections.forEach(sec => observer.observe(sec));
+
+/* TYPEWRITER */
+function typeText(section) {
+  const elements = section.querySelectorAll('.typewriter');
+
+  elements.forEach(el => {
+    if (el.dataset.done) return;
+
+    const text = el.getAttribute('data-text');
+    let i = 0;
+
+    function typing() {
+      if (i < text.length) {
+        el.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 30);
+      }
+    }
+
+    typing();
+    el.dataset.done = true;
+  });
+}
+
+/* HEARTS */
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+}
+createHearts();
 </script>
 
 </body>
