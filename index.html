@@ -158,11 +158,11 @@ h1 {
 </style>
 </head>
 
-<body onclick="document.getElementById('bgMusic').play()">
+<body>
 
 <div id="lockScreen">
   <div>
-    <h1>it’s not time yet… ❤️</h1>
+    <h1>It’s not time yet… 😡❤️</h1>
     <p id="countdown"></p>
   </div>
 </div>
@@ -406,7 +406,7 @@ notes.forEach(note => {
 });
 
 // SET UNLOCK TIME
-const unlockTime = new Date("April 27, 2026 00:00:00").getTime();
+const unlockTime = new Date("April 26, 2026 21:16:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
@@ -431,6 +431,22 @@ function updateCountdown() {
 // update every second
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+let musicStarted = false;
+
+function startMusic() {
+  const music = document.getElementById("bgMusic");
+
+  if (!musicStarted) {
+    music.play().catch(() => {});
+    musicStarted = true;
+  }
+}
+
+// ONLY allow music after unlock
+document.getElementById("mainContent").addEventListener("click", startMusic);
+
+  
 </script>
 
 </div>
