@@ -105,11 +105,18 @@ h1 {
   font-size: 20px;
   line-height: 1.6;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  transform: rotate(-1deg);
 }
 
-.note:nth-of-type(even) {
+.note:nth-of-type(3n+1) {
+  transform: rotate(-3deg);
+}
+
+.note:nth-of-type(3n+2) {
   transform: rotate(2deg);
+}
+
+.note:nth-of-type(3n+3) {
+  transform: rotate(-1deg);
 }
 
 .note p {
