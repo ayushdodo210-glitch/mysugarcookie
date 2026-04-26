@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Tista ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
 
 <style>
 body {
@@ -12,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* BLURRED BG */
+/* BG */
 body::before {
   content: "";
   position: fixed;
@@ -25,7 +26,6 @@ body::before {
   z-index: -2;
 }
 
-/* DARK OVERLAY */
 body::after {
   content: "";
   position: fixed;
@@ -35,19 +35,18 @@ body::after {
   z-index: -1;
 }
 
-/* HEADING */
+/* TITLE */
 h1 {
   text-align: center;
-  padding: 80px 20px;
-  font-size: 52px;
+  padding: 60px 20px;
+  font-size: 42px;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
-  position: relative;
-  min-height: 160vh; /* more space */
+  padding: 60px 20px;
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateY(40px);
   transition: all 1s ease;
 }
 
@@ -56,67 +55,73 @@ h1 {
   transform: translateY(0);
 }
 
-/* POLAROIDS */
-.polaroid {
-  position: absolute;
-  width: 260px;
-  background: black;
-  padding: 10px 10px 35px 10px;
-  border-radius: 6px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-  transition: transform 0.4s;
+/* CHAOTIC GRID */
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
+
+/* POLAROID */
+.polaroid {
+  width: 160px;
+  background: black;
+  padding: 8px 8px 25px 8px;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+  position: relative;
+}
+
+/* RANDOM CHAOS */
+.polaroid:nth-child(1) { transform: rotate(-6deg) translateY(-5px); }
+.polaroid:nth-child(2) { transform: rotate(5deg) translateY(10px); }
+.polaroid:nth-child(3) { transform: rotate(-3deg) translateY(-10px); }
+.polaroid:nth-child(4) { transform: rotate(7deg) translateY(5px); }
 
 .polaroid img {
   width: 100%;
-  height: 260px;
+  height: 160px;
   object-fit: cover;
 }
 
 .polaroid p {
-  margin: 10px 0 0;
-  font-size: 16px;
+  margin: 8px 0 0;
+  font-size: 14px;
   color: #eaeaea;
   text-align: center;
   font-family: "Georgia", serif;
   font-style: italic;
 }
 
-.polaroid:hover {
-  transform: scale(1.05) rotate(0deg);
-}
-
-/* BIGGER PAPER NOTES */
+/* NOTES */
 .note {
-  position: absolute;
-  max-width: 500px; /* bigger for paragraphs */
+  margin: 50px auto;
+  max-width: 90%;
   background: linear-gradient(135deg, #fdf6e3, #f5e6c8);
   color: #3e2f1c;
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  font-size: 24px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.6;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transform: rotate(-1deg);
 }
 
-/* PARAGRAPH SPACING */
-.note p {
-  margin-bottom: 15px;
-}
-
-/* RANDOM TILT */
-.note:nth-of-type(odd) {
+.note:nth-of-type(even) {
   transform: rotate(2deg);
 }
-.note:nth-of-type(even) {
-  transform: rotate(-2deg);
+
+.note p {
+  margin-bottom: 12px;
 }
 
-/* TYPEWRITER */
+/* TYPE */
 .typewriter::after {
   content: "|";
   animation: blink 1s infinite;
 }
+
 @keyframes blink {
   50% { opacity: 0; }
 }
@@ -128,6 +133,7 @@ h1 {
   color: pink;
   animation: floatUp 6s linear infinite;
 }
+
 @keyframes floatUp {
   to {
     transform: translateY(-100vh);
@@ -139,43 +145,57 @@ h1 {
 
 <body onclick="document.getElementById('bgMusic').play()">
 
-<h1>Happy Birthdayyy my SUGAR COOKIEE 🍪❤️</h1>
+<h1>happy birthday ❤️</h1>
 
-<!-- SECTION 1 -->
+<!-- SECTION -->
 <div class="section">
 
-  <div class="polaroid" style="top:10%; left:5%; transform:rotate(-6deg);">
-    <img src="photo1.jpg">
-    <p>my favorite picture of you</p>
+  <div class="photo-grid">
+    <div class="polaroid">
+      <img src="photo1.jpg">
+      <p>my favorite picture of you</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="photo2.jpg">
+      <p>you here &gt;&gt;&gt;</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="photo3.jpg">
+      <p>this one stays with me</p>
+    </div>
   </div>
 
-  <div class="polaroid" style="top:70%; left:70%; transform:rotate(8deg);">
-    <img src="photo2.jpg">
-    <p>you here &gt;&gt;&gt;</p>
-  </div>
-
-  <div class="note typewriter" data-text="" style="top:35%; left:25%;">
+  <div class="note typewriter" data-text="">
     <p>i don’t even know where to start</p>
     <p>but i’m really glad i met you</p>
-    <p>like genuinely, you changed so much for me without even trying</p>
+    <p>you genuinely changed so much for me without even trying</p>
   </div>
 
 </div>
 
-<!-- SECTION 2 -->
+<!-- SECTION -->
 <div class="section">
 
-  <div class="polaroid" style="top:15%; left:75%; transform:rotate(-5deg);">
-    <img src="photo3.jpg">
-    <p>still can’t believe i got you</p>
+  <div class="photo-grid">
+    <div class="polaroid">
+      <img src="photo4.jpg">
+      <p>still can’t believe i got you</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="photo5.jpg">
+      <p>i’d choose you every time</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="photo6.jpg">
+      <p>my favorite version of you</p>
+    </div>
   </div>
 
-  <div class="polaroid" style="top:75%; left:10%; transform:rotate(10deg);">
-    <img src="photo4.jpg">
-    <p>i’d choose you every time</p>
-  </div>
-
-  <div class="note typewriter" data-text="" style="top:40%; left:30%;">
+  <div class="note typewriter" data-text="">
     <p>you make everything feel lighter</p>
     <p>even on days when nothing else feels right</p>
     <p>you somehow make it better just by being there</p>
@@ -183,33 +203,11 @@ h1 {
 
 </div>
 
-<!-- SECTION 3 -->
-<div class="section">
-
-  <div class="polaroid" style="top:10%; left:30%; transform:rotate(6deg);">
-    <img src="photo5.jpg">
-    <p>my favorite version of you</p>
-  </div>
-
-  <div class="polaroid" style="top:75%; left:65%; transform:rotate(-8deg);">
-    <img src="photo6.jpg">
-    <p>this one stays with me</p>
-  </div>
-
-  <div class="note typewriter" data-text="" style="top:45%; left:15%;">
-    <p>i’d choose you every single time</p>
-    <p>in every version of life</p>
-    <p>it would still be you</p>
-  </div>
-
-</div>
-
 <!-- FINAL -->
 <div class="section">
-  <h1 class="typewriter" data-text="i love you ❤️" style="position:absolute; top:40%; width:100%;"></h1>
+  <h1 class="typewriter" data-text="i love you ❤️"></h1>
 </div>
 
-<!-- MUSIC -->
 <audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
@@ -221,11 +219,34 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
+      typeText(entry.target);
     }
   });
 }, { threshold: 0.2 });
 
 sections.forEach(sec => observer.observe(sec));
+
+function typeText(section) {
+  const elements = section.querySelectorAll('.typewriter');
+
+  elements.forEach(el => {
+    if (el.dataset.done) return;
+
+    const text = el.getAttribute('data-text');
+    let i = 0;
+
+    function typing() {
+      if (i < text.length) {
+        el.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 30);
+      }
+    }
+
+    typing();
+    el.dataset.done = true;
+  });
+}
 
 function createHearts() {
   setInterval(() => {
