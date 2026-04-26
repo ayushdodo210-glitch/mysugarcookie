@@ -8,9 +8,22 @@
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(#0f0c29, #302b63, #24243e);
     color: white;
     overflow-x: hidden;
+
+    /* BACKGROUND IMAGE */
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* DARK OVERLAY */
+  body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
   }
 
   h1 {
@@ -38,7 +51,7 @@
     height: 180px;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     transition: transform 0.4s;
   }
 
@@ -49,7 +62,7 @@
   .note {
     position: absolute;
     max-width: 260px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.4);
     padding: 15px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
@@ -117,7 +130,6 @@
 </audio>
 
 <script>
-/* FADE IN ON SCROLL */
 const sections = document.querySelectorAll('.section');
 
 const observer = new IntersectionObserver(entries => {
@@ -131,7 +143,6 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(sec => observer.observe(sec));
 
-/* TYPEWRITER */
 function typeText(section) {
   const elements = section.querySelectorAll('.typewriter');
 
@@ -154,7 +165,6 @@ function typeText(section) {
   });
 }
 
-/* HEARTS */
 function createHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
