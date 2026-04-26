@@ -107,18 +107,6 @@ h1 {
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
-.note:nth-of-type(3n+1) {
-  transform: rotate(-3deg);
-}
-
-.note:nth-of-type(3n+2) {
-  transform: rotate(2deg);
-}
-
-.note:nth-of-type(3n+3) {
-  transform: rotate(-1deg);
-}
-
 .note p {
   margin-bottom: 12px;
 }
@@ -355,6 +343,17 @@ createHearts();
 
   const music = document.getElementById("bgMusic");
   music.volume = 0.4;
+
+// RANDOM TILT FOR NOTES
+const notes = document.querySelectorAll(".note");
+
+notes.forEach(note => {
+  const randomRotate = (Math.random() * 6 - 3); // -3deg to +3deg
+  const randomX = (Math.random() * 20 - 10); // slight left/right shift
+  const randomY = (Math.random() * 20 - 10); // slight up/down shift
+
+  note.style.transform = `rotate(${randomRotate}deg) translate(${randomX}px, ${randomY}px)`;
+});
 </script>
 
 </body>
